@@ -23,6 +23,7 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         //TODO: slider for random fact
+        //TODO: add images and facts data
         d_countryname = findViewById(R.id.dash_country_name);
         d_countryimage = findViewById(R.id.dash_country_image);
         d_countryfact = findViewById(R.id.dash_country_fact);
