@@ -3,11 +3,10 @@ package com.example.ck;
 import java.util.ArrayList;
 
 public class QuestionBank {
-    String difficulty;
-    ArrayList<String> words;
+    public static String difficulty;
 
     public QuestionBank(String difficulty) {
-        this.category = difficulty;
+        this.difficulty = difficulty;
 
     }
     public static String[] categories = {
@@ -35,7 +34,6 @@ public class QuestionBank {
             case "Easy":
                 sentenceList.add("What continent is this country from?");
                 sentenceList.add("The engines had twin overhead camshafts which were gear driven via a train of gears coming from the rear of the crankshaft");
-
                 break;
             case "Medium":
                 sentenceList.add("What currency does this country use?");
