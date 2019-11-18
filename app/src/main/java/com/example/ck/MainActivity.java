@@ -43,9 +43,8 @@ public class MainActivity extends AppCompatActivity {
                 User testUser = SessionData.mUserDatabase.mUserDao().fetchOneUserByUserName(username.getText().toString());
 
                 if (password.getText().toString().equals(testUser.getPassword().toString())){
+                    startActivity(new Intent(MainActivity.this, SearchByFlagActivity.class));
                     // Login successful, creating user
-                    Intent intent = new Intent(MainActivity.this, Dashboard.class);
-                    startActivity(intent);
                     SessionData.currentUser = testUser;
                     info.setText("Your login details are correct");
                 } else {

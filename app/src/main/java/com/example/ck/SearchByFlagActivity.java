@@ -1,42 +1,48 @@
 package com.example.ck;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
+import android.widget.SearchView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.ck.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class SearchByCountryNameActivity extends AppCompatActivity {
+public class SearchByFlagActivity extends AppCompatActivity {
+
     private final String url = "https://restcountries.eu/rest/v2/all";
     private JsonArrayRequest request;
     private RequestQueue requestQueue;
     private RecyclerView recyclerView;
-    // public List<Country> countryList = new ArrayList<>();
-    //private CountryItemAdapter adapter = new CountryItemAdapter(countryList, );
+    private List<Country> countryList = new ArrayList<>();
 
-    //private EditText editText;
-    /*private RecyclerView recyclerView;
-    private CatRowItemAdapter adapter = new CatRowItemAdapter(catList, getContext());*/
+    private FlagItemAdapter adapter = new FlagItemAdapter(countryList);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_by_country_name);
-        recyclerView = findViewById(R.id.country_name_recycler_view);
-
+        setContentView(R.layout.activity_search_by_flag);
+        recyclerView = findViewById(R.id.country_flag_recycler_view);
         jsonrequest();
 
     }
@@ -59,13 +65,14 @@ public class SearchByCountryNameActivity extends AppCompatActivity {
                         country.setFlag(jsonObject.getString("flag"));
                         country.setContinent(jsonObject.getString("region"));
 
-                        Country.countryList.add(country);
+                        countryList.add(country);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
 
-                setUpRecyclerView(Country.countryList);
+                setUpRecyclerView(countryList);
+                System.out.println("hi");
 
             }
         }, new Response.ErrorListener() {
@@ -79,10 +86,34 @@ public class SearchByCountryNameActivity extends AppCompatActivity {
         requestQueue.add(request);
     }
 
-    public void setUpRecyclerView(List<Country> countryList) {
-        CountryItemAdapter myAdapter = new CountryItemAdapter();
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        recyclerView.setAdapter(myAdapter);
 
+    public void setUpRecyclerView(List<Country> countryList) {
+        adapter = new FlagItemAdapter(countryList);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        recyclerView.setAdapter(adapter);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.ck_menu, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        return true;
     }
 }
