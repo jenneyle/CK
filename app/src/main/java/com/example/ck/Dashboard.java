@@ -48,13 +48,13 @@ public class Dashboard extends AppCompatActivity {
     Facts f01 = new Facts("France", 1, "No pig is allowed to be called Napolean in France!");
     Facts f02 = new Facts("Greenland", 2, "Greenland is actually the world's biggest island - by area - that is not a continent");
     Facts f03 = new Facts("Egypt", 3, "The Pyramid of Giza is the oldest of the wonders of the Ancient world, that is still in existence");
-    Facts f04 = new Facts("Papua New Guinea", 4, "Papua New Guinea is the most linguistically diverse country in the world with 851 individual languages listed ");
+    Facts f04 = new Facts("Japan", 4, "In Japan, the name Japan is Nihon or Nippon whichh means Land of the rising sun ");
     Facts f05 = new Facts("Greece", 5, "The official name of Greece is the Hellenic Republic");
     Facts f06 = new Facts("China", 6, "More than 10million people visit the Great Wall of China every year");
     Facts f07 = new Facts("India", 7, "The national symbol of India is the endangered Benegal Tiger");
-    Facts f08 = new Facts("Mexico", 8, "Mexico is hoe to over 30 UNESCO Wolrd Heritage Sites");
-    Facts f09 = new Facts("Venezuela", 4, "Venezuela is home to the world's tallest waterfall - Angel Falls");
-    Facts f10 = new Facts("Chile", 4, "The national sport of Chile is Rodeo which is still very popular in rural areas of the country");
+    Facts f08 = new Facts("Mexico", 8, "Mexico is home to over 30 UNESCO World Heritage Sites");
+    Facts f09 = new Facts("Venezuela", 9, "Venezuela is home to the world's tallest waterfall - Angel Falls");
+    Facts f10 = new Facts("Australia", 10, "Australia's the only continent covered by a single country");
 
 
 
