@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     // Username not found
                     info.setText("User doesn't exist");
                 } else if (password.getText().toString().equals(testUser.getPassword().toString())){
-                    startActivity(new Intent(MainActivity.this, Dashboard.class));
+                    startActivity(new Intent(MainActivity.this, QuestionActivity.class));
                     // Login successful, creating user
                     SessionData.currentUser = testUser;
                     info.setText("Your login details are correct");

@@ -15,7 +15,9 @@
         <activity android:name=".SearchByFlagActivity" />
         <activity android:name=".Dashboard" />
         <activity android:name=".FlashCardActivity" />
+        <activity android:name=".QuestionActivity" />
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

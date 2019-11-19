@@ -26,4 +26,15 @@ public class CreateData {
 //        }
 
     }
+
+    static List<Question>  preparedQuestions = new ArrayList<>();
+
+    public static void populateQuestions(){
+
+        preparedQuestions.add(new Question("Thor is a what", "superhero", "someone", "ugly fattie", "hottie", "superhero or A", "Easy", false));
+        preparedQuestions.add(new Question("whyyyyyyyyyyyy", "please work", "somehting different", "range", "hottie", "xmas lights till jan or A", "Medium", false));
+        preparedQuestions.add(new Question("hey pls work", "help me", "somehting different", "range", "hottie", "xmas lights till jan or A", "Medium", false));
+
+        SessionData.mQuestionDatabase.questionDao().insertAllQuestions(preparedQuestions);
+    }
 }
