@@ -27,6 +27,10 @@ public abstract class UserDatabase extends RoomDatabase {
         }
         return instance;
     }
+
+    public static void destroyInstance(){
+        instance = null;
+    }
 }
 
 

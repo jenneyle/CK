@@ -12,7 +12,8 @@ public class User {
     String username;
 
     String password;
-    private int score;
+
+    int score;
 
     public User(String username, String password, int score) {
         this.username = username;

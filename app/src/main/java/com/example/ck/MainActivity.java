@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ck.R;
 
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText password;
     private TextView info;
     private Button login;
+    private Button register;
 
 
     Button button;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.etPassword);
         info = findViewById(R.id.etInfo);
         login = findViewById(R.id.buttonLogin);
+        register = findViewById(R.id.buttonRegister);
 
         CreateData.populateUsers();
 
@@ -42,7 +45,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 User testUser = SessionData.mUserDatabase.mUserDao().fetchOneUserByUserName(username.getText().toString());
 
-                if (password.getText().toString().equals(testUser.getPassword().toString())){
+                if(username.getText().toString().equals("")) {
+                    // Missing Username Field
+                    info.setText("Please fill out the username field");
+                } else if (password.getText().toString().equals("")) {
+                    // Missing Password Field
+                    info.setText("Please fill out the password field");
+                } else if (testUser == null){
+                    // Username not found
+                    info.setText("User doesn't exist");
+                } else if (password.getText().toString().equals(testUser.getPassword().toString())){
                     startActivity(new Intent(MainActivity.this, Dashboard.class));
                     // Login successful, creating user
                     SessionData.currentUser = testUser;
@@ -50,10 +62,18 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     // Incorrect credentials
                     info.setText("Your login details are incorrect");
-//
-
 
                 }
+
+            }
+        });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Registration.class));
+                //setContentView(R.layout.activity_registration);
+                Toast.makeText(getApplicationContext(), "clicked", Toast.LENGTH_LONG).show();
 
             }
         });
