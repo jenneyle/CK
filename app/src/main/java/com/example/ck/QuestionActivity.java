@@ -23,7 +23,6 @@ public class QuestionActivity extends AppCompatActivity {
     private List<Question> questionList = new ArrayList<>();
     private QuestionAdapter adapter = new QuestionAdapter(questionList);
 
-
     //private QuestionViewModel questionViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
