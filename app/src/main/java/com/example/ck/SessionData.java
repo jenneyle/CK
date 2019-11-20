@@ -8,6 +8,7 @@ public class SessionData {
 
     public static UserDatabase mUserDatabase;
     public static QuestionDatabase mQuestionDatabase;
+    public static SouvenirDatabase mSouvenirDatabase;
     public static User currentUser = new User("Kevin", "password", 1);
 
 
