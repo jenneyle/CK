@@ -91,7 +91,7 @@
         android:id="@+id/etInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:textColor="#ff0000"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/etPassword"
