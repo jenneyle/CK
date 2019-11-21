@@ -72,7 +72,6 @@ public class SearchByFlagActivity extends AppCompatActivity {
                 }
 
                 setUpRecyclerView(countryList);
-                System.out.println("hi");
 
             }
         }, new Response.ErrorListener() {
