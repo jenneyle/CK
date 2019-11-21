@@ -3,27 +3,29 @@ package com.example.ck;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
-@Entity (primaryKeys = {"username", "souvenirID"})
+@Entity
 public class UserSouvenir {
+    @PrimaryKey
     @NonNull private String username;
-    @NonNull private int souvenirID;
+
+  private int souvenirID;
 
 
-
-    public UserSouvenir(@NonNull String username, int souvenirID) {
+    public UserSouvenir(String username, int souvenirID) {
         this.username = username;
         this.souvenirID = souvenirID;
     }
     @Ignore
     public UserSouvenir(){}
 
-    @NonNull
+
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(@NonNull String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 

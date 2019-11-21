@@ -4,19 +4,21 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.example.ck.UserSouvenir;
+
 import java.util.List;
 
 @Dao
 public interface UserSouvenirDao {
     @Insert
-    void insertSingleSouvenir(UserSouvenir mUserSouvenir);
+    void insertSingleUserSouvenir(UserSouvenir mUserSouvenir);
 
     @Insert
-    void insertMultipleSouvenirs (List<UserSouvenir> UserSouvenirList);
+    void insertMultipleUserSouvenir(List<UserSouvenir> UserSouvenirList);
 
     @Query("SELECT * FROM UserSouvenir WHERE souvenirID = :souvenirID ")
-    UserSouvenir fetchAllSouvenirsByID (int souvenirID);
+    UserSouvenir fetchAllUserSouvenirsByID (int souvenirID);
 
     @Query("SELECT * FROM UserSouvenir WHERE username = :username  ORDER BY souvenirID")
-    List<UserSouvenir> getAllSouvenirsByUser(String username);
+    List<UserSouvenir> getAllUserSouvenirsByUser(String username);
 }

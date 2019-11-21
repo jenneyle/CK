@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/question"
+        android:id="@+id/dash_country_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -14,37 +14,28 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/question_image"
+        android:id="@+id/dash_country_image"
         android:layout_width="match_parent"
-        android:layout_height="173dp"
+        android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_launcher_background" />
 
-    <Button
-        android:id="@+id/answer_a"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="A" />
-
-    <Button
-        android:id="@+id/answer_b"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="B" />
-    <Button
-        android:id="@+id/answer_c"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="C" />
-    <Button
-        android:id="@+id/answer_d"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="D" />
-
     <TextView
-        android:id="@+id/score"
+        android:id="@+id/dash_country_fact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Score:" />
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/factsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click here to learn a new fact" />
+
+    <Button
+        android:id="@+id/flashCardBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Flash Cards" />
+
 
 </LinearLayout>

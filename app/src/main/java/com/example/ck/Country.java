@@ -30,7 +30,6 @@ public class Country {
 
     }
 
-
     public Country(String name, String alpha2Code, String capital, String region, String subregion, String area, int population, String flag, String continent) {
         this.name = name;
         this.alpha2Code = alpha2Code;

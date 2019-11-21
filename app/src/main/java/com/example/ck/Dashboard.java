@@ -1,69 +1,62 @@
 package com.example.ck;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.Arrays;
 import java.util.Collections;
 
 public class Dashboard extends AppCompatActivity {
-    private TextView d_countryname;
-    private TextView d_countryfact;
-    private ImageView d_countryimage;
-    private Button factsBtn;
+    BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        //TODO: slider for random fact
-        //TODO: add images and facts data
-        d_countryname = findViewById(R.id.dash_country_name);
-        d_countryimage = findViewById(R.id.dash_country_image);
-        d_countryfact = findViewById(R.id.dash_country_fact);
-        factsBtn = findViewById(R.id.factsBtn);
-
-        //Button to generate random fact
-        factsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showRandomFact();
-            }
-        });
+        bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navigationListener);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
     }
 
-    public void showRandomFact(){
-        shuffleFacts();
-        d_countryname.setText(factArray[1].getDash_country_name());
-        d_countryfact.setText(factArray[1].getDash_country_fact());
+    private BottomNavigationView.OnNavigationItemSelectedListener navigationListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                    if (menuItem.getItemId() == R.id.nav_home) {
+                        Fragment fragment = new HomeFragment();
+                        swapFragment(fragment);
+                        return true;
+                    } else if (menuItem.getItemId() == R.id.nav_quiz) {
+                        Fragment fragment = new QuizFragment();
+                        swapFragment(fragment);
+                        return true;
+                    } else if (menuItem.getItemId() == R.id.nav_profile) {
+                        Fragment fragment = new ProfileFragment();
+                        swapFragment(fragment);
+                        return true;}
+                    return false;
+                }
+            };
+
+    private void swapFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
     }
-
-    Facts f01 = new Facts("France", 1, "No pig is allowed to be called Napolean in France!");
-    Facts f02 = new Facts("Greenland", 2, "Greenland is actually the world's biggest island - by area - that is not a continent");
-    Facts f03 = new Facts("Egypt", 3, "The Pyramid of Giza is the oldest of the wonders of the Ancient world, that is still in existence");
-    Facts f04 = new Facts("Japan", 4, "In Japan, the name Japan is Nihon or Nippon whichh means Land of the rising sun ");
-    Facts f05 = new Facts("Greece", 5, "The official name of Greece is the Hellenic Republic");
-    Facts f06 = new Facts("China", 6, "More than 10million people visit the Great Wall of China every year");
-    Facts f07 = new Facts("India", 7, "The national symbol of India is the endangered Benegal Tiger");
-    Facts f08 = new Facts("Mexico", 8, "Mexico is home to over 30 UNESCO World Heritage Sites");
-    Facts f09 = new Facts("Venezuela", 9, "Venezuela is home to the world's tallest waterfall - Angel Falls");
-    Facts f10 = new Facts("Australia", 10, "Australia's the only continent covered by a single country");
-
-
-
-    Facts [] factArray = new Facts[]{
-            f01, f02, f03, f04, f05, f06, f07, f08, f09,f10
-    };
-
-    public void shuffleFacts(){
-        Collections.shuffle(Arrays.asList(factArray));
-    }
-
 }

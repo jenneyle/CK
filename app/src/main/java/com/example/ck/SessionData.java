@@ -7,8 +7,10 @@ import androidx.room.Room;
 public class SessionData {
 
     public static UserDatabase mUserDatabase;
-    public static QuestionDatabase mQuestionDatabase;
-    public static SouvenirDatabase mSouvenirDatabase;
+    public static UserDatabase mQuestionDatabase;
+    //public static QuestionDatabase mQuestionDatabase;
+    public static UserDatabase mSouvenirDatabase;
+    public static UserDatabase mUserSouvenirDatabase;
     public static User currentUser = new User("Kevin", "password", 1);
 
 
@@ -19,7 +21,15 @@ public class SessionData {
                 .fallbackToDestructiveMigration()
                 .build();
         mQuestionDatabase = Room.databaseBuilder(context.getApplicationContext(),
-                QuestionDatabase.class, "q_db").allowMainThreadQueries()
+                UserDatabase.class, "user_db").allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build();
+        mSouvenirDatabase = Room.databaseBuilder(context.getApplicationContext(),
+                UserDatabase.class, "user_db").allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build();
+        mUserSouvenirDatabase = Room.databaseBuilder(context.getApplicationContext(),
+                UserDatabase.class, "user_db").allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
                 .build();
     }

@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         register = findViewById(R.id.buttonRegister);
 
         CreateData.populateUsers();
+        CreateData.populateQuestions();
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     // Username not found
                     info.setText("User doesn't exist");
                 } else if (password.getText().toString().equals(testUser.getPassword().toString())){
-                    startActivity(new Intent(MainActivity.this, QuestionActivity.class));
+                    startActivity(new Intent(MainActivity.this, Dashboard.class));
                     // Login successful, creating user
                     SessionData.currentUser = testUser;
                     info.setText("Your login details are correct");
