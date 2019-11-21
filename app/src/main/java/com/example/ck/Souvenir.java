@@ -10,14 +10,12 @@ public class Souvenir {
     private String name;
     private String description;
     private int icon;
-    private int souvenirScore;
 
-    public Souvenir(int souvenirID, String name, String description, int icon, int souvenirScore) {
+    public Souvenir(int souvenirID, String name, String description, int icon) {
         this.souvenirID = souvenirID;
         this.name = name;
         this.description = description;
         this.icon = icon;
-        this.souvenirScore = souvenirScore;
 
     }
 
@@ -53,11 +51,5 @@ public class Souvenir {
         this.icon = icon;
     }
 
-    public int getSouvenirScore() {
-        return souvenirScore;
-    }
 
-    public void setSouvenirScore(int souvenirScore) {
-        this.souvenirScore = souvenirScore;
-    }
 }

@@ -8,12 +8,13 @@ import androidx.room.RoomDatabase;
 
 
 
-@Database(entities = {User.class, Question.class, Souvenir.class, UserSouvenir.class}, version = 5, exportSchema = false)
+@Database(entities = {User.class, Question.class, Souvenir.class, UserSouvenir.class, Country.class}, version = 8, exportSchema = false)
 public abstract class UserDatabase extends RoomDatabase {
     public abstract UserDao mUserDao();
     public abstract QuestionDao mQuestionDao();
     public abstract UserSouvenirDao mUserSouvenirDao();
     public abstract SouvenirDao mSouvenirDao();
+    public abstract CountryDao mCountryDao();
 
     private static UserDatabase instance;
     public static UserDatabase getInstance(Context context){

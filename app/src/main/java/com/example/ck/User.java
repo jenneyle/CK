@@ -2,9 +2,18 @@ package com.example.ck;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import static androidx.room.ForeignKey.CASCADE;
 
+
+//@Entity(foreignKeys = @ForeignKey(entity = Souvenir.class,
+//        parentColumns = "souvenirID",
+//        childColumns = "souvenirID",
+//        onDelete = CASCADE))
 @Entity
 public class User {
     @NonNull
@@ -15,10 +24,18 @@ public class User {
 
     int score;
 
+
+
+
     public User(String username, String password, int score) {
         this.username = username;
         this.password = password;
         this.score = score;
+
+    }
+    @Ignore
+    public User(){
+
     }
 
     public String getUsername() {

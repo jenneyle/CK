@@ -24,5 +24,8 @@ public interface SouvenirDao {
     @Query("SELECT * FROM Souvenir ORDER BY souvenirID")
     List<Souvenir> getAll();
 
+    @Query("SELECT * FROM Souvenir WHERE souvenirID = :id")
+    Souvenir getIcon(int id);
+
 
 }

@@ -29,6 +29,7 @@ public class QuestionAdapterViewPager extends PagerAdapter {
         this.questionList = questionList;
         this.currentUser = currentUser;
         this.context = context;
+
     }
 
     @Override
@@ -66,13 +67,22 @@ public class QuestionAdapterViewPager extends PagerAdapter {
         optionC = view.findViewById(R.id.answer_c);
         optionD = view.findViewById(R.id.answer_d);
         score = view.findViewById(R.id.score);
+        score.setText("Score: " + currentUser.getScore());
+
+        if(questionList.get(position).isImageQuestion() == false){
+            //hide image
+
+        }else{
+            //show image
+        }
+        //TODO: if statement for showing images for image quesitons
+
 
         questionText.setText(questionList.get(position).getQuestion());
         optionA.setText(questionList.get(position).getAnswerA());
         optionB.setText(questionList.get(position).getAnswerB());
         optionC.setText(questionList.get(position).getAnswerC());
         optionD.setText(questionList.get(position).getAnswerD());
-        score.setText("Score: " + currentUser.getScore());
 
         optionA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,59 +90,71 @@ public class QuestionAdapterViewPager extends PagerAdapter {
 
                 if (questionList.get(position).getCorrectAnswer().equals("A")) {
                     Toast.makeText(context, "Correct!", Toast.LENGTH_SHORT).show();
-                    SessionData.mUserDatabase.mUserDao().updateScore(currentUser.getScore() + 10, currentUser.getUsername());
+                    currentUser.setScore(currentUser.getScore() + 10);
+                    SessionData.mUserDatabase.mUserDao().updateScore(currentUser.getScore(), currentUser.getUsername());
                     score.setText("Score: " + currentUser.getScore());
                 } else {
                     Toast.makeText(context, "Incorrect!", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
 
+        optionA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (questionList.get(position).getCorrectAnswer().equals("A")) {
+                    Toast.makeText(context, "Correct!", Toast.LENGTH_SHORT).show();
+                    currentUser.setScore(currentUser.getScore() + 10);
+                    SessionData.mUserDatabase.mUserDao().updateScore(currentUser.getScore(), currentUser.getUsername());
+                    score.setText("Score: " + currentUser.getScore());
+                } else {
+                    Toast.makeText(context, "Incorrect!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         optionB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (questionList.get(position).getCorrectAnswer().equals("B")) {
                     Toast.makeText(context, "Correct!", Toast.LENGTH_SHORT).show();
-                    SessionData.mUserDatabase.mUserDao().updateScore(currentUser.getScore() + 10, currentUser.getUsername());
+                    currentUser.setScore(currentUser.getScore() + 10);
+                    SessionData.mUserDatabase.mUserDao().updateScore(currentUser.getScore(), currentUser.getUsername());
                     score.setText("Score: " + currentUser.getScore());
                 } else {
                     Toast.makeText(context, "Incorrect!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
         optionC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (questionList.get(position).getCorrectAnswer().equals("C")) {
                     Toast.makeText(context, "Correct!", Toast.LENGTH_SHORT).show();
-                    SessionData.mUserDatabase.mUserDao().updateScore(currentUser.getScore() + 10, currentUser.getUsername());
+                    currentUser.setScore(currentUser.getScore() + 10);
+                    SessionData.mUserDatabase.mUserDao().updateScore(currentUser.getScore(), currentUser.getUsername());
                     score.setText("Score: " + currentUser.getScore());
                 } else {
                     Toast.makeText(context, "Incorrect!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
         optionD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (questionList.get(position).getCorrectAnswer().equals("D")) {
                     Toast.makeText(context, "Correct!", Toast.LENGTH_SHORT).show();
-                    SessionData.mUserDatabase.mUserDao().updateScore(currentUser.getScore() + 10, currentUser.getUsername());
+                    currentUser.setScore(currentUser.getScore() + 10);
+                    SessionData.mUserDatabase.mUserDao().updateScore(currentUser.getScore(), currentUser.getUsername());
                     score.setText("Score: " + currentUser.getScore());
                 } else {
                     Toast.makeText(context, "Incorrect!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
         container.addView(view, 0);
         return view;
     }

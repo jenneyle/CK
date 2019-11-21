@@ -13,11 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ck.R;
 
-
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements UserDelegate {
     public boolean usrExist = false;
 
     private EditText username;
@@ -25,9 +22,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView info;
     private Button login;
     private Button register;
+    private User testUser;
 
 
     Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,25 +39,33 @@ public class MainActivity extends AppCompatActivity {
         info = findViewById(R.id.etInfo);
         login = findViewById(R.id.buttonLogin);
         register = findViewById(R.id.buttonRegister);
+        final UserDatabase db = UserDatabase.getInstance(getApplicationContext());
 
+        CreateData.populateSouvenirTable();
         CreateData.populateUsers();
         CreateData.populateQuestions();
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 User testUser = SessionData.mUserDatabase.mUserDao().fetchOneUserByUserName(username.getText().toString());
+             /*   FetchOneUserByUserNameAsyncTask fetchOneUserByUserNameAsyncTask = new FetchOneUserByUserNameAsyncTask();
+                fetchOneUserByUserNameAsyncTask.setDb(db);
+                fetchOneUserByUserNameAsyncTask.setDelegate(MainActivity.this);
+                fetchOneUserByUserNameAsyncTask.execute();*/
 
-                if(username.getText().toString().equals("")) {
+
+                if (username.getText().toString().equals("")) {
                     // Missing Username Field
                     info.setText("Please fill out the username field");
                 } else if (password.getText().toString().equals("")) {
                     // Missing Password Field
                     info.setText("Please fill out the password field");
-                } else if (testUser == null){
+                } else if (testUser == null) {
                     // Username not found
                     info.setText("User doesn't exist");
-                } else if (password.getText().toString().equals(testUser.getPassword().toString())){
+                } else if (password.getText().toString().equals(testUser.getPassword().toString())) {
                     startActivity(new Intent(MainActivity.this, Dashboard.class));
                     // Login successful, creating user
                     SessionData.currentUser = testUser;
@@ -92,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void fetchOneUserByUserName(User u) {
+
+        testUser = u;
+
+    }
 
 
 //        button = findViewById(R.id.button);
@@ -102,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(new Intent(MainActivity.this, SearchByCountryNameActivity.class));
 //            }
 //        });
-    }
-
+}
 
 
