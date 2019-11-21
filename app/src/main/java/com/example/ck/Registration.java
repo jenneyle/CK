@@ -68,7 +68,7 @@ public class Registration extends AppCompatActivity {
             }
         });
 
-        LinearLayout linearLayout = findViewById(R.id.linearLayout2);
+        LinearLayout linearLayout = findViewById(R.id.Regolayout);
         AnimationDrawable animationDrawable = (AnimationDrawable) linearLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(2000);
