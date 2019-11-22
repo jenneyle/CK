@@ -38,4 +38,17 @@
         android:layout_height="wrap_content"
         android:text="TextView" />
 
+    <TextView
+        android:id="@+id/country_subregion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/country_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+
 </LinearLayout>

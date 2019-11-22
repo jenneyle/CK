@@ -64,8 +64,10 @@ public class SearchByFlagActivity extends AppCompatActivity {
                         country.setPopulation(jsonObject.getInt("population"));
                         country.setFlag(jsonObject.getString("flag"));
                         country.setContinent(jsonObject.getString("region"));
+                        country.setSubregion(jsonObject.getString("subregion"));
+                        country.setArea(jsonObject.getString("area"));
 
-                        countryList.add(country);
+                           countryList.add(country);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

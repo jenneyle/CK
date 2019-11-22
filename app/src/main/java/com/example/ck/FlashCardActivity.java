@@ -15,6 +15,8 @@ public class FlashCardActivity extends AppCompatActivity {
     private TextView countryCapital;
     private TextView countryPopulation;
     private TextView countryContinent;
+    private TextView countrySubregion;
+    private TextView countryArea;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class FlashCardActivity extends AppCompatActivity {
         String alpha2Code = intent.getExtras().getString("alpha2Code");
         String flag = intent.getExtras().getString("flag");
         String continent = intent.getExtras().getString("continent");
+        String subregion = intent.getExtras().getString("subregion");
+        String area = intent.getExtras().getString("area");
 
 
 
@@ -37,11 +41,16 @@ public class FlashCardActivity extends AppCompatActivity {
         countryPopulation = findViewById(R.id.country_population);
         countryFlag = findViewById(R.id.country_flag);
         countryContinent = findViewById(R.id.country_continent);
+        countrySubregion = findViewById(R.id.country_subregion);
+        countryArea = findViewById(R.id.country_area);
+
 
         countryName.setText(name);
         countryCapital.setText(capital);
         countryPopulation.setText(String.valueOf(population));
         countryContinent.setText(continent);
+        countrySubregion.setText(subregion);
+        countryArea.setText(area);
         String imageUrl = "https://www.countryflags.io/" + alpha2Code + "/shiny/64.png";
         Glide.with(FlashCardActivity.this).load(imageUrl).into(countryFlag);
 

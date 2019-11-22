@@ -43,6 +43,9 @@ public class FlagItemAdapter extends RecyclerView.Adapter<FlagItemAdapter.FlagIt
                 i.putExtra("alpha2Code", countryList.get(flagItemViewHolder.getAdapterPosition()).getAlpha2Code());
                 i.putExtra("continent", countryList.get(flagItemViewHolder.getAdapterPosition()).getContinent());
                 i.putExtra("flag", countryList.get(flagItemViewHolder.getAdapterPosition()).getFlag());
+                i.putExtra("subregion", countryList.get(flagItemViewHolder.getAdapterPosition()).getSubregion());
+                i.putExtra("area", countryList.get(flagItemViewHolder.getAdapterPosition()).getArea());
+
                 v.getContext().startActivity(i);
             }
         });
