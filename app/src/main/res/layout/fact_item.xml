@@ -35,10 +35,14 @@
             android:textSize="20sp"
             android:textStyle="normal" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
         <ImageView
             android:id="@+id/dash_country_image"
             android:layout_width="match_parent"
-            android:layout_height="176dp"
+            android:layout_height="192dp"
             android:layout_gravity="center"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_launcher_background" />

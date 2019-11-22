@@ -22,9 +22,7 @@ public class ProfileFragment extends Fragment {
 
     TextView pro_username;
     ImageView pro_image;
-    ImageView pro_souvenir;
-    RecyclerView recyclerView;
-    TextView pro_souvenir_name;
+    TextView pro_score;
     ViewPager viewPager;
     private List<Badge> userBadgeList = new ArrayList<>();
 
@@ -36,24 +34,31 @@ public class ProfileFragment extends Fragment {
 
         pro_username = view.findViewById(R.id.profile_username);
         pro_image = view.findViewById(R.id.profile_image);
+        pro_score = view.findViewById(R.id.profile_score);
 
         User user = SessionData.currentUser;
 
         pro_username.setText("Traveller " + user.getUsername());
-
+        pro_score.setText("Score: " + user.getScore());
+        if (user.getScore() > 2000) {
+            userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(7));
+        }
+        if (user.getScore() > 1000) {
+            userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(6));
+        }
         if (user.getScore() > 500) {
             userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(5));
         }
-        if (user.getScore() > 400) {
+        if (user.getScore() > 300) {
             userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(4));
         }
-        if (user.getScore() > 300) {
+        if (user.getScore() >= 200) {
             userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(3));
         }
-        if (user.getScore() > 200) {
+        if (user.getScore() >= 100) {
             userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(2));
         }
-        if (user.getScore() > 100) {
+        if (user.getScore() >= 0) {
             userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(1));
         }
 

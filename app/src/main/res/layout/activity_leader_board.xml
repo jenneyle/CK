@@ -4,11 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e8f4f8"
+    android:orientation="vertical"
+    android:padding="8dp"
     tools:context=".LeaderBoardActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/leaderboard_recycler_view"/>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Leaderboard"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/allerta" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="See how the other travellers are tracking!"
+        android:textStyle="italic" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/leaderboard_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="680dp"
+        android:padding="8dp" />
 
 </LinearLayout>

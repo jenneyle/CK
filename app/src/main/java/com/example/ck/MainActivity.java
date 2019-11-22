@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity implements UserDelegate {
+public class MainActivity extends AppCompatActivity{
     public boolean usrExist = false;
 
     private EditText username;
@@ -99,7 +99,6 @@ public class MainActivity extends AppCompatActivity implements UserDelegate {
 
     }
 
-    @Override
     public void fetchOneUserByUserName(User u) {
 
         testUser = u;

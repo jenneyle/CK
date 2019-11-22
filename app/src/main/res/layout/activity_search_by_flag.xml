@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#e8f4f8"
     android:orientation="vertical"
+    android:padding="8dp"
     tools:context=".SearchByFlagActivity">
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="8dp"
-        android:text="Select a flashcard to learn more about a country..."
+        android:text="Select or Search for your favourite Country"
         android:textSize="16sp"
         android:textStyle="bold|italic" />
 

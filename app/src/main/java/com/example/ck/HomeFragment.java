@@ -19,13 +19,13 @@ import java.util.Collections;
 
 public class HomeFragment extends Fragment {
 
-    Facts f01 = new Facts("France", R.drawable.france, "no pig is allowed to be called Napolean in France!");
+    Facts f01 = new Facts("France", R.drawable.france, "No pig is allowed to be called Napolean in France!");
     Facts f02 = new Facts("Greenland", R.drawable.greenland, "Greenland is actually the world's biggest island - by area - that is not a continent");
-    Facts f03 = new Facts("Egypt", R.drawable.egypt, "the Pyramid of Giza is the oldest of the wonders of the Ancient world, that is still in existence");
-    Facts f04 = new Facts("Japan", R.drawable.japan, "in Japan, the name Japan is Nihon or Nippon whichh means Land of the rising sun ");
-    Facts f05 = new Facts("Greece", R.drawable.greece, "the official name of Greece is the Hellenic Republic");
-    Facts f06 = new Facts("China", R.drawable.china, "more than 10million people visit the Great Wall of China every year");
-    Facts f07 = new Facts("India", R.drawable.india, "the national symbol of India is the endangered Benegal Tiger");
+    Facts f03 = new Facts("Egypt", R.drawable.egypt, "The Pyramid of Giza is the oldest of the wonders of the Ancient world");
+    Facts f04 = new Facts("Japan", R.drawable.japan, "In Japan, the name Japan is Nihon or Nippon whichh means Land of the rising sun ");
+    Facts f05 = new Facts("Greece", R.drawable.greece, "The official name of Greece is the Hellenic Republic");
+    Facts f06 = new Facts("China", R.drawable.china, "More than 10million people visit the Great Wall of China every year");
+    Facts f07 = new Facts("India", R.drawable.india, "The national symbol of India is the endangered Benegal Tiger");
     Facts f09 = new Facts("Venezuela", R.drawable.venezuela, "Venezuela is home to the world's tallest waterfall - Angel Falls");
     Facts f10 = new Facts("Australia", R.drawable.sydney, "Australia's the only continent covered by a single country");
 
@@ -34,6 +34,9 @@ public class HomeFragment extends Fragment {
             f01, f02, f03, f04, f05, f06, f07, f09, f10
     };
     private Button flashCardsBtn;
+    private Button leaderboardBtn;
+    Button logout;
+
 
     @Nullable
     @Override
@@ -41,18 +44,24 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         flashCardsBtn = view.findViewById(R.id.flashCardBtn);
+        leaderboardBtn = view.findViewById(R.id.leaderboardBtn);
+        logout = view.findViewById(R.id.logOutButton);
 
-       Button logOffbtn = view.findViewById(R.id.logOutButton);
 
-
-        logOffbtn.setOnClickListener(new View.OnClickListener() {
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                startActivity(intent);
-
+                startActivity(new Intent(getContext(), MainActivity.class));
             }
         });
+
+        leaderboardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), LeaderBoardActivity.class));
+            }
+        });
+
 
         flashCardsBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -7,9 +7,12 @@ public class CreateData {
     public static void populateUsers() {
 
         List<User> dummyUsers = new ArrayList<>();
-        dummyUsers.add(new User("Jenny", "123", 250));
-        dummyUsers.add(new User("Sophia", "123", 150));
-        dummyUsers.add(new User("freeya", "123", 10));
+        dummyUsers.add(new User("Jenney", "123", 500));
+        dummyUsers.add(new User("Sophia", "123", 180));
+        dummyUsers.add(new User("Freeya", "123", 290));
+        dummyUsers.add(new User("Gavin", "123", 2300));
+        dummyUsers.add(new User("Daniel", "123", 380));
+        dummyUsers.add(new User("Ashley", "123", 720));
         SessionData.mUserDatabase.mUserDao().insertMultipleUsers(dummyUsers);
 
     }

@@ -1,158 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
 
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#e8f4f8">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right">
+        android:background="#e8f4f8"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="wrap_content"
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            app:toolbarId="@+id/toolbar">
-
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:background="#e8f4f8"></androidx.appcompat.widget.Toolbar>
-
-            <Button
-                android:id="@+id/logOutButton"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginEnd="-2dp"
-                android:layout_marginRight="-2dp"
-                android:background="#fdfdfd"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="8dp"
-                android:text="Log Out" />
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#e8f4f8"
-            android:foregroundGravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="8dp">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.455"
+                tools:layout_editor_absoluteX="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:foregroundGravity="center"
-                    android:gravity="center"
+                    android:layout_height="387dp"
                     android:orientation="vertical"
-                    android:padding="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.455"
-                    tools:layout_editor_absoluteX="8dp">
+                    android:padding="8dp">
 
-                    <RelativeLayout
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/view_pager_facts"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="8dp">
 
-                    </RelativeLayout>
+                    </androidx.viewpager.widget.ViewPager>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/title"
-                        android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <Button
+                        android:id="@+id/flashCardBtn"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:background="#fdfdfd"
                         android:padding="8dp"
-                        android:text="Welcome to Country Kings "
-                        android:textSize="30sp"
-                        android:textStyle="bold"
-                        app:fontFamily="@font/allerta" />
+                        android:text="Flash Cards" />
 
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Swipe for some quick facts" />
-
-                    <LinearLayout
+                    <Space
                         android:layout_width="match_parent"
-                        android:layout_height="307dp"
-                        android:orientation="vertical">
+                        android:layout_height="10dp" />
 
-                        <androidx.viewpager.widget.ViewPager
-                            android:id="@+id/view_pager_facts"
-                            android:layout_width="match_parent"
-                            android:layout_height="350dp"
-                            android:padding="8dp">
-
-                        </androidx.viewpager.widget.ViewPager>
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <Button
+                        android:id="@+id/leaderboardBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="8dp">
+                        android:background="#fdfdfd"
+                        android:padding="8dp"
+                        android:text="LeaderBoard" />
 
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:text="Learn more about your favourite countries!" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
 
-                        <Button
-                            android:id="@+id/flashCardBtn"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#fdfdfd"
-                            android:padding="8dp"
-                            android:text="Flash Cards" />
-
-                        <ImageView
-                            android:id="@+id/imageView9"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center"
-                            android:padding="8dp"
-                            app:srcCompat="@drawable/countryking" />
-
-                    </LinearLayout>
+                    <Button
+                        android:id="@+id/logOutButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="41dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="#fdfdfd"
+                        android:padding="8dp"
+                        android:text="Log Out" />
 
                 </LinearLayout>
-            </ScrollView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </ScrollView>
 
-    </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

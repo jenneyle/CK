@@ -38,6 +38,7 @@
                 android:id="@+id/question_image"
                 android:layout_width="match_parent"
                 android:layout_height="173dp"
+                android:padding="8dp"
                 app:srcCompat="@drawable/ic_launcher_background" />
         </LinearLayout>
 
@@ -48,7 +49,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <Button
                 android:id="@+id/answer_a"
