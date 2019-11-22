@@ -39,7 +39,7 @@ public class ProfileFragment extends Fragment {
 
         User user = SessionData.currentUser;
 
-        pro_username.setText(user.getUsername());
+        pro_username.setText("Traveller " + user.getUsername());
 
         if (user.getScore() > 500) {
             userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(5));

@@ -15,7 +15,7 @@
         android:padding="8dp"
         android:text="Select a flashcard to learn more about a country..."
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold|italic" />
 
 
     <androidx.recyclerview.widget.RecyclerView

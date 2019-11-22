@@ -1,87 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_gravity="center"
+    android:background="#e8f4f8"
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/question"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Question goes here"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:fontFamily="sans-serif" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Question goes here"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/allerta" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <ImageView
+                android:id="@+id/question_image"
+                android:layout_width="match_parent"
+                android:layout_height="173dp"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_launcher_background" />
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            android:layout_height="20dp" />
 
-        <ImageView
-            android:id="@+id/question_image"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="173dp"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/answer_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#65FFFFFF"
+                android:padding="8dp"
+                android:text="A"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/answer_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#65FFFFFF"
+                android:onClick="onBtnClicked"
+                android:padding="8dp"
+                android:text="B"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/answer_c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#65FFFFFF"
+                android:onClick="onBtnClicked"
+                android:padding="8dp"
+                android:text="C"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/answer_d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#65FFFFFF"
+                android:onClick="onBtnClicked"
+                android:padding="8dp"
+                android:text="D"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Score:"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/countryking" />
+        </LinearLayout>
+
     </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/answer_a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="A"
-            android:textSize="18sp"
-            android:textStyle="italic" />
-
-        <Button
-            android:id="@+id/answer_b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onBtnClicked"
-            android:text="B"
-            android:textSize="18sp"
-            android:textStyle="italic" />
-
-        <Button
-            android:id="@+id/answer_c"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onBtnClicked"
-            android:text="C"
-            android:textSize="18sp"
-            android:textStyle="italic" />
-
-        <Button
-            android:id="@+id/answer_d"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onBtnClicked"
-            android:text="D"
-            android:textSize="18sp"
-            android:textStyle="italic" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Score:"
-        android:textSize="24sp" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

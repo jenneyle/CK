@@ -67,7 +67,7 @@
                 <EditText
                     android:id="@+id/etUsername"
                     android:layout_width="wrap_content"
-                    android:layout_height="47dp"
+                    android:layout_height="50dp"
 
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
@@ -99,7 +99,7 @@
                 <EditText
                     android:id="@+id/etPassword"
                     android:layout_width="wrap_content"
-                    android:layout_height="47dp"
+                    android:layout_height="50dp"
                     android:ems="15"
                     android:hint="Password"
 

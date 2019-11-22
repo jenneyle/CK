@@ -31,7 +31,8 @@
                 android:padding="8dp"
                 android:text="TextView"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:fontFamily="@font/allerta" />
 
             <ImageView
                 android:id="@+id/country_flag"
@@ -56,6 +57,7 @@
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:text="TextView"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -64,6 +66,7 @@
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:text="TextView"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -72,6 +75,7 @@
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:text="TextView"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -80,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:text="TextView"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -88,22 +93,23 @@
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:text="TextView"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="91dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/countryking" />
 
             </LinearLayout>
 
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="91dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/countryking" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

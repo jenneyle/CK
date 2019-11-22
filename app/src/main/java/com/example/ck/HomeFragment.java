@@ -19,20 +19,19 @@ import java.util.Collections;
 
 public class HomeFragment extends Fragment {
 
-    Facts f01 = new Facts("France", 1, "No pig is allowed to be called Napolean in France!");
-    Facts f02 = new Facts("Greenland", 2, "Greenland is actually the world's biggest island - by area - that is not a continent");
-    Facts f03 = new Facts("Egypt", 3, "The Pyramid of Giza is the oldest of the wonders of the Ancient world, that is still in existence");
-    Facts f04 = new Facts("Japan", 4, "In Japan, the name Japan is Nihon or Nippon whichh means Land of the rising sun ");
-    Facts f05 = new Facts("Greece", 5, "The official name of Greece is the Hellenic Republic");
-    Facts f06 = new Facts("China", 6, "More than 10million people visit the Great Wall of China every year");
-    Facts f07 = new Facts("India", 7, "The national symbol of India is the endangered Benegal Tiger");
-    Facts f08 = new Facts("Mexico", 8, "Mexico is home to over 30 UNESCO World Heritage Sites");
-    Facts f09 = new Facts("Venezuela", 9, "Venezuela is home to the world's tallest waterfall - Angel Falls");
-    Facts f10 = new Facts("Australia", 10, "Australia's the only continent covered by a single country");
+    Facts f01 = new Facts("France", R.drawable.france, "no pig is allowed to be called Napolean in France!");
+    Facts f02 = new Facts("Greenland", R.drawable.greenland, "Greenland is actually the world's biggest island - by area - that is not a continent");
+    Facts f03 = new Facts("Egypt", R.drawable.egypt, "the Pyramid of Giza is the oldest of the wonders of the Ancient world, that is still in existence");
+    Facts f04 = new Facts("Japan", R.drawable.japan, "in Japan, the name Japan is Nihon or Nippon whichh means Land of the rising sun ");
+    Facts f05 = new Facts("Greece", R.drawable.greece, "the official name of Greece is the Hellenic Republic");
+    Facts f06 = new Facts("China", R.drawable.china, "more than 10million people visit the Great Wall of China every year");
+    Facts f07 = new Facts("India", R.drawable.india, "the national symbol of India is the endangered Benegal Tiger");
+    Facts f09 = new Facts("Venezuela", R.drawable.venezuela, "Venezuela is home to the world's tallest waterfall - Angel Falls");
+    Facts f10 = new Facts("Australia", R.drawable.sydney, "Australia's the only continent covered by a single country");
 
 
     Facts[] factArray = new Facts[]{
-            f01, f02, f03, f04, f05, f06, f07, f08, f09, f10
+            f01, f02, f03, f04, f05, f06, f07, f09, f10
     };
     private Button flashCardsBtn;
 
@@ -43,6 +42,17 @@ public class HomeFragment extends Fragment {
 
         flashCardsBtn = view.findViewById(R.id.flashCardBtn);
 
+       Button logOffbtn = view.findViewById(R.id.logOutButton);
+
+
+        logOffbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
         flashCardsBtn.setOnClickListener(new View.OnClickListener() {
             @Override

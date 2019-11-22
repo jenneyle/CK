@@ -25,7 +25,7 @@ public class CreateData {
         preparedQuestions.add(new Question(5, "What is the capital city of France", "Paris", "Rome", "Amsterdam", "London", "Paris", 10, false));
         preparedQuestions.add(new Question(6, "What is the capital city of Japan", "Seoul", "Tokyo", "Hanoi", "Beijing", "Tokyo", 10, false));
         preparedQuestions.add(new Question(7, "What country has the following flag?", "https://www.countryflags.io/CN/flat/64.png", "Turkey", "South Korea", "China", "Iran", "China", 10, true));
-        preparedQuestions.add(new Question(8, "What country has the following flag?", "https://www.countryflags.io/CA/flat/64.png", "Canada", "United States", "Mexico", "Taiwan", "United States", 10, true));
+        preparedQuestions.add(new Question(8, "What country has the following flag?", "https://www.countryflags.io/CA/flat/64.png", "Canada", "United States", "Mexico", "Taiwan", "Canada", 10, true));
 
         preparedQuestions.add(new Question(9, "What continent is Peru in?", "South America", "North America", "Asia", "Europe", "South America", 20, false));
         preparedQuestions.add(new Question(10,"What continent is Lebanon in?", "Australia", "Asia", "South America", "Europe", "Asia", 20, false));
@@ -50,15 +50,16 @@ public class CreateData {
     }
 
 
-    //
     public static void populateSouvenirTable() {
         List<Badge> badgeList = new ArrayList();
-        badgeList.add(new Badge(1, "Nomad", "You're a true shiela", R.drawable.countryking));
-        badgeList.add(new Badge(2, "Hiker", "text2", R.drawable.confirmpass));
-        badgeList.add(new Badge(3, "Backpacker", "text3", R.drawable.ic_local_library_black_24dp));
-        badgeList.add(new Badge(4, "Tourist", "You're a true shiela", R.drawable.confirmpass));
-        badgeList.add(new Badge(5, "Voyager", "You're a true shiela", R.drawable.confirmpass));
-        badgeList.add(new Badge(6, "Pilot", "You're a true shiela", R.drawable.confirmpass));
+        badgeList.add(new Badge(1, "Nomad", "Keep travelling to find fresh pasture!", R.drawable.map));
+        badgeList.add(new Badge(2, "Hiker", "You must be a pro at starting fires!", R.drawable.bonfire));
+        badgeList.add(new Badge(3, "Backpacker", "Pack your things! Time for an adventure in Asia!", R.drawable.backpack));
+        badgeList.add(new Badge(4, "Tourist", "You must have seen the world!", R.drawable.camera));
+        badgeList.add(new Badge(5, "Voyager", "You must have seen where the line meets the sea!", R.drawable.ship));
+        badgeList.add(new Badge(6, "Pilot", "You are flying between countires now!", R.drawable.hat));
+        badgeList.add(new Badge(7, "King of Countries", "You are officially the King of Countires! ", R.drawable.crowns));
+
         SessionData.mUserDatabase.mBadgeDao().insertMultipleSouvenir(badgeList);
     }
 }

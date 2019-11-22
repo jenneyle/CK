@@ -44,8 +44,8 @@ public class FactAdapterViewPager extends PagerAdapter {
         factImage = view.findViewById(R.id.dash_country_image);
 
         factCountry.setText(factList[position].getDash_country_name());
-        // factImage.setImageResource(factList[position].getDash_country_image());
-        factText.setText(factList[position].getDash_country_fact());
+        factImage.setImageResource(factList[position].getDash_country_image());
+        factText.setText("Did you know that " + factList[position].getDash_country_fact());
 
         container.addView(view);
         return view;
