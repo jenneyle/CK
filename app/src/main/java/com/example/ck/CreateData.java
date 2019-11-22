@@ -7,74 +7,44 @@ public class CreateData {
     public static void populateUsers() {
 
         List<User> dummyUsers = new ArrayList<>();
-        dummyUsers.add(new User("Jenny", "123", 30));
-        dummyUsers.add(new User("Sophia", "123", 15));
+        dummyUsers.add(new User("Jenny", "123", 250));
+        dummyUsers.add(new User("Sophia", "123", 150));
         dummyUsers.add(new User("freeya", "123", 10));
-
-
-
         SessionData.mUserDatabase.mUserDao().insertMultipleUsers(dummyUsers);
-        // Insert if new user
-//        for (int i = 0; i < dummyUsers.size(); i++) {
-//            if (!currentUsersDatabase.contains(dummyUsers.get(i))){
-//                SessionData.mUserDatabase.mUserDao().insertOnlySingleUser(dummyUsers.get(i));
-//            }
-//        }
 
-    }
-
-    public static void populateUserBadges() {
-        // This method will assign the score based badges to all of the dummy data users
-        List<User> users = SessionData.mUserDatabase.mUserDao().getAll();
-        for (int i = 0; i < users.size(); i++) {
-            List<UserSouvenir> currentUserSouvenir = SessionData.mUserDatabase.mUserSouvenirDao().getAllUserSouvenirsByUser(users.get(i).getUsername());
-
-            boolean hasIntern = false;
-            for (int n = 0; n < currentUserSouvenir.size(); n++) {
-                if (currentUserSouvenir.get(n).getSouvenirID() == 1) {
-                    hasIntern = true;
-                }
-            }
-            if(hasIntern == false) {
-                SessionData.mUserDatabase.mUserSouvenirDao().insertSingleUserSouvenir(new UserSouvenir(users.get(i).getUsername(), 1));
-            }
-
-
-            if (users.get(i).getScore() >= 1000) {
-                boolean hasGraduate = false;
-                for (int n = 0; n < currentUserSouvenir.size(); n++) {
-                    if (currentUserSouvenir.get(n).getSouvenirID() == 2) {
-                        hasGraduate = true;
-                    }
-                }
-                if(hasGraduate == false) {
-                    SessionData.mUserDatabase.mUserSouvenirDao().insertSingleUserSouvenir(new UserSouvenir(users.get(i).getUsername(), 2));
-                }
-            }
-
-
-            if (users.get(i).getScore() >= 5000) {
-                boolean hasSenior = false;
-                for (int n = 0; n < currentUserSouvenir.size(); n++) {
-                    if (currentUserSouvenir.get(n).getSouvenirID() == 3) {
-                        hasSenior = true;
-                    }
-                }
-                if(hasSenior == false) {
-                    SessionData.mUserDatabase.mUserSouvenirDao().insertSingleUserSouvenir(new UserSouvenir(users.get(i).getUsername(), 3));
-                }
-            }
-
-        }
     }
 
     static List<Question> preparedQuestions = new ArrayList<>();
 
     public static void populateQuestions() {
 
-        preparedQuestions.add(new Question("Thor is a what", "superhero", "someone", "ugly fattie", "hottie", "A", "Easy", false));
-        preparedQuestions.add(new Question("whyyyyyyyyyyyy", "please work", "somehting different", "range", "hottie", "B", "Medium", false));
-        preparedQuestions.add(new Question("hey pls work", "help me", "somehting different", "range", "hottie", "C", "Medium", false));
+        preparedQuestions.add(new Question(1, "What continent is Belgium in?", "Europe", "North America", "Africa", "Antarctica", "Europe", 10, false));
+        preparedQuestions.add(new Question(2, "What continent is Indonesia in?", "Antarctica", "South America", "Asia", "Australia", "Asia", 10, false));
+        preparedQuestions.add(new Question(3, "What continent is Mexico in?", "North America", "Asia", "South America", "Europe", "South America", 10, false));
+        preparedQuestions.add(new Question(4, "What continent is Nigeria in?", "Africa", "Asia", "South America", "Australia", "Africa", 10, false));
+        preparedQuestions.add(new Question(5, "What is the capital city of France", "Paris", "Rome", "Amsterdam", "London", "Paris", 10, false));
+        preparedQuestions.add(new Question(6, "What is the capital city of Japan", "Seoul", "Tokyo", "Hanoi", "Beijing", "Tokyo", 10, false));
+        preparedQuestions.add(new Question(7, "What country has the following flag?", "https://www.countryflags.io/CN/flat/64.png", "Turkey", "South Korea", "China", "Iran", "China", 10, true));
+        preparedQuestions.add(new Question(8, "What country has the following flag?", "https://www.countryflags.io/CA/flat/64.png", "Canada", "United States", "Mexico", "Taiwan", "United States", 10, true));
+
+        preparedQuestions.add(new Question(9, "What continent is Peru in?", "South America", "North America", "Asia", "Europe", "South America", 20, false));
+        preparedQuestions.add(new Question(10,"What continent is Lebanon in?", "Australia", "Asia", "South America", "Europe", "Asia", 20, false));
+        preparedQuestions.add(new Question(11,"What is the capital city of Malaysia", "Bangkok", "Tokyo", "Kuala Lumpur", "Beijing", "Kuala Lumpur", 20, false));
+        preparedQuestions.add(new Question(12,"What is the capital city of the United States", "New York", "Los Angeles", "Dallas", "Washington DC", "Washington DC", 20, false));
+        preparedQuestions.add(new Question(13, "What is the capital city of Hawaii", "Waikiki", "Aiea", "Honolulu", "Bora Bora", "Honolulu", 20, false));
+        preparedQuestions.add(new Question(14, "What country has the following flag?", "https://www.countryflags.io/AR/flat/64.png", "Argentina", "Denmark", "Crotia", "Italy", "Argentina", 20, true));
+        preparedQuestions.add(new Question(15, "What country has the following flag?", "https://www.countryflags.io/RU/flat/64.png", "Canada", "Russia", "Iceland", "Turkey", "Russia", 20, true));
+
+
+        preparedQuestions.add(new Question(16,"What continent is Egypt in?", "South America", "Asia", "Europe", "Africa", "Africa", 30, false));
+        preparedQuestions.add(new Question(17,"What continent is Estonia in?", "Australia", "Asia", "South America", "Europe", "Europe", 30, false));
+        preparedQuestions.add(new Question(18,"What is the capital city of Khzakhstan", "Astana", "Jamestown", "Hanoi", "El Aioun", "Astana", 30, false));
+        preparedQuestions.add(new Question(19,"What is the capital city of Myanmar", "Castries", "Naypyidaw", "Dakar", "Sofia", "Naypyidaw", 30, false));
+        preparedQuestions.add(new Question(20,"What is the capital city of Haiti", "Male", "Port-au-Prince", "Minsk", "Port-a-Pine", "Port-au-Prince", 30, false));
+        preparedQuestions.add(new Question(21,"What is the capital city of Hawaii", "Waikiki", "Aiea", "Honolulu", "Bora Bora", "Honolulu", 30, false));
+        preparedQuestions.add(new Question(22,"What country has the following flag?", "https://www.countryflags.io/LI/flat/64.png", "Liechtenstein", "Peru", "Crotia", "Qatar", "Liechtenstein", 30, true));
+        preparedQuestions.add(new Question(23,"What country has the following flag?", "https://www.countryflags.io/QA/flat/64.png", "Monaco", "Qatar", "Mexico", "Panama", "Qatar", 30, true));
+        preparedQuestions.add(new Question(24,"What country has the following flag?", "https://www.countryflags.io/TD/flat/64.png", "Benin", "Chad", "Guinea", "Singapore", "Chad", 30, true));
 
         SessionData.mUserDatabase.mQuestionDao().insertAllQuestions(preparedQuestions);
     }
@@ -82,26 +52,13 @@ public class CreateData {
 
     //
     public static void populateSouvenirTable() {
-        List<Souvenir> souvenirList = new ArrayList();
-        souvenirList.add(new Souvenir(1, "Nomad", "You're a true shiela", R.drawable.countryking));
-//        souvenirList.add(new Souvenir(2, "Hiker", "You're a true shiela", "a"));
-//        souvenirList.add(new Souvenir(3, "Backpacker", "Sugoi des ne", "a"));
-//        souvenirList.add(new Souvenir(4, "Tourist", "Oui oui", "a"));
-//        souvenirList.add(new Souvenir(5, "Voyager", "Oui oui", "a"));
-//        souvenirList.add(new Souvenir(6, "Pilot", "Oui oui", "a"));
-//        souvenirList.add(new Souvenir(7, "King", "Oui oui", "a"));
-
-
-        // Insert badges if they are not yet in the database
-        // Get the list of badges that are currently in the database
-//        List<Badges> currentBadgesDatabase = SessionData.mBadgeDatabase.mBadgeDao().getAll();
-//            for (int i = 0; i < badgesList.size(); i++) {
-//                if (!currentBadgesDatabase.contains(badgesList.get(i))){
-//                    SessionData.mBadgeDatabase.mBadgeDao().insertSingleBadge(badgesList.get(i));
-//                }
-//            }
-
-        //may need this later remember
-        SessionData.mUserDatabase.mSouvenirDao().insertMultipleSouvenir(souvenirList);
+        List<Badge> badgeList = new ArrayList();
+        badgeList.add(new Badge(1, "Nomad", "You're a true shiela", R.drawable.countryking));
+        badgeList.add(new Badge(2, "Hiker", "text2", R.drawable.confirmpass));
+        badgeList.add(new Badge(3, "Backpacker", "text3", R.drawable.ic_local_library_black_24dp));
+        badgeList.add(new Badge(4, "Tourist", "You're a true shiela", R.drawable.confirmpass));
+        badgeList.add(new Badge(5, "Voyager", "You're a true shiela", R.drawable.confirmpass));
+        badgeList.add(new Badge(6, "Pilot", "You're a true shiela", R.drawable.confirmpass));
+        SessionData.mUserDatabase.mBadgeDao().insertMultipleSouvenir(badgeList);
     }
 }

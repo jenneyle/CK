@@ -16,14 +16,14 @@ public interface QuestionDao {
     void insert(Question question);
 
     //@query is for sql query
-    @Query("SELECT * FROM Question WHERE categoryID = :categoryID ")
-    Question findQuestionByCategory(String categoryID);
+    @Query("SELECT * FROM Question WHERE pointAllocation = :pointAllocation ")
+    List <Question> findQuestionByCategory(int pointAllocation);
 
     @Insert (onConflict = OnConflictStrategy.REPLACE)
     void insertAllQuestions(List<Question> questionList);
 
     @Query("SELECT * FROM Question")
-    LiveData<List<Question>> getAllQuestions();
+    List<Question> getAllQuestions();
 
 
 

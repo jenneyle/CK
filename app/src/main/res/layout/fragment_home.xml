@@ -5,31 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/dash_country_name"
+    <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/dash_country_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_launcher_background" />
-
-    <TextView
-        android:id="@+id/dash_country_fact"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <Button
-        android:id="@+id/factsBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Click here to learn a new fact" />
+        android:layout_height="200dp"
+        android:id="@+id/view_pager_facts"/>
 
     <Button
         android:id="@+id/flashCardBtn"

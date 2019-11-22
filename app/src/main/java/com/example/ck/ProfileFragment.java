@@ -10,20 +10,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
-import com.bumptech.glide.Glide;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileFragment extends Fragment {
 
     private List<User> userList;
 
-    private TextView pro_username;
-    private ImageView pro_image;
-    private ImageView pro_souvenir;
-    private TextView pro_souvenir_name;
-
+    TextView pro_username;
+    ImageView pro_image;
+    ImageView pro_souvenir;
+    RecyclerView recyclerView;
+    TextView pro_souvenir_name;
+    ViewPager viewPager;
+    private List<Badge> userBadgeList = new ArrayList<>();
 
 
     @Nullable
@@ -33,29 +36,31 @@ public class ProfileFragment extends Fragment {
 
         pro_username = view.findViewById(R.id.profile_username);
         pro_image = view.findViewById(R.id.profile_image);
-        pro_souvenir = view.findViewById(R.id.profile_souvenir);
-        pro_souvenir_name = view.findViewById(R.id.profile_souvenir_name);
 
         User user = SessionData.currentUser;
 
         pro_username.setText(user.getUsername());
 
-        if (user.getScore() < 100) {
-            pro_souvenir_name.setText(SessionData.mUserDatabase.mSouvenirDao().getIcon(1).getName());
-            pro_souvenir.setImageResource(SessionData.mUserDatabase.mSouvenirDao().getIcon(1).getIcon());
-            //String iconUrl = SessionData.mUserDatabase.mSouvenirDao().getIcon(1).getIcon();
-            System.out.println("hi");
-
-            //Glide.with(getContext()).load(iconUrl).into(pro_souvenir);
+        if (user.getScore() > 500) {
+            userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(5));
+        }
+        if (user.getScore() > 400) {
+            userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(4));
+        }
+        if (user.getScore() > 300) {
+            userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(3));
+        }
+        if (user.getScore() > 200) {
+            userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(2));
+        }
+        if (user.getScore() > 100) {
+            userBadgeList.add(SessionData.mUserDatabase.mBadgeDao().getSingleBadge(1));
         }
 
+        viewPager = view.findViewById(R.id.view_pager);
+        BadgeAdapterViewPager adapter = new BadgeAdapterViewPager(userBadgeList, getContext(), SessionData.currentUser);
+        viewPager.setAdapter(adapter);
 
-        //need to add in a class field
-//        pro_image.setText(user.getCost());
-
-
-//        desTextView.setText(fooditem.getDescription());
-//        imageView.setImageResource(fooditem.getImageDrawableId());
         return view;
     }
 }

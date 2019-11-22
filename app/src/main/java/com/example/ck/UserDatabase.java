@@ -1,22 +1,19 @@
 package com.example.ck;
 
-import android.content.Context;
-
 import androidx.room.Database;
-import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
 
-@Database(entities = {User.class, Question.class, Souvenir.class, UserSouvenir.class, Country.class}, version = 8, exportSchema = false)
+@Database(entities = {User.class, Question.class, Badge.class, Country.class}, version = 9, exportSchema = false)
 public abstract class UserDatabase extends RoomDatabase {
     public abstract UserDao mUserDao();
     public abstract QuestionDao mQuestionDao();
-    public abstract UserSouvenirDao mUserSouvenirDao();
-    public abstract SouvenirDao mSouvenirDao();
+    //public abstract UserSouvenirDao mUserSouvenirDao();
+    public abstract BadgeDao mBadgeDao();
     public abstract CountryDao mCountryDao();
 
-    private static UserDatabase instance;
+   /* private static UserDatabase instance;
     public static UserDatabase getInstance(Context context){
         if (instance ==  null){
             instance = Room.databaseBuilder(context.getApplicationContext(), UserDatabase.class, "ckBD")
@@ -31,12 +28,8 @@ public abstract class UserDatabase extends RoomDatabase {
         }
         return instance;
     }
-
-    public static void destroyInstance(){
+*/
+    /*public static void destroyInstance(){
         instance = null;
-    }
+    }*/
 }
-
-
-
-

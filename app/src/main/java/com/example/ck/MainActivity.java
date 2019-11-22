@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements UserDelegate {
         info = findViewById(R.id.etInfo);
         login = findViewById(R.id.buttonLogin);
         register = findViewById(R.id.buttonRegister);
-        final UserDatabase db = UserDatabase.getInstance(getApplicationContext());
+        // final UserDatabase db = UserDatabase.getInstance(getApplicationContext());
 
         CreateData.populateSouvenirTable();
         CreateData.populateUsers();
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements UserDelegate {
             }
         });
 
-
+        //cool background theme
         LinearLayout constraintLayout = findViewById(R.id.layout);
         AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
@@ -116,5 +116,3 @@ public class MainActivity extends AppCompatActivity implements UserDelegate {
 //            }
 //        });
 }
-
-
