@@ -62,8 +62,7 @@ public class Registration extends AppCompatActivity {
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
-//                    intent.putExtra(NEW_USERNAME, etUser.getText().toString());
-//                    intent.putExtra(NEW_PASSWORD, etPass.getText().toString());
+//
                 }
             }
         });

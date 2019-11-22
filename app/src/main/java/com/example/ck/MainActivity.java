@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity{
         // final UserDatabase db = UserDatabase.getInstance(getApplicationContext());
 
         CreateData.populateSouvenirTable();
+        //play once then can comment out
         CreateData.populateUsers();
         CreateData.populateQuestions();
 
@@ -106,12 +107,4 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
-//        button = findViewById(R.id.button);
-//
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, SearchByCountryNameActivity.class));
-//            }
-//        });
 }

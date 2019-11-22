@@ -32,7 +32,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private List<Question> questionsToDisplay = new ArrayList<>();
 
 
-    // private List<Question> questionList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

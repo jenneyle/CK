@@ -23,12 +23,8 @@ public class Country {
     public String flag;
     @SerializedName("region")
     public String continent;
-    //public ArrayList<String> borders;
     public static List<Country> countryList = new ArrayList<>();
 
-    //public Currency[] currencies;
-    //public Languages[] languages;
-//TODO: currency and languages are arrays within the object.
 
 @Ignore
     public Country() {
