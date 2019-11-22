@@ -45,12 +45,12 @@ public class FlashCardActivity extends AppCompatActivity {
         countryArea = findViewById(R.id.country_area);
 
 
-        countryName.setText(name);
-        countryCapital.setText(capital);
-        countryPopulation.setText(String.valueOf(population));
-        countryContinent.setText(continent);
-        countrySubregion.setText(subregion);
-        countryArea.setText(area);
+        countryName.setText("Country: " + name);
+        countryCapital.setText("Capital City: " + capital);
+        countryPopulation.setText("Population: "+String.valueOf(population));
+        countryContinent.setText("Continent: "+continent);
+        countrySubregion.setText("Sub Region: "+subregion);
+        countryArea.setText("Area "+ area);
         String imageUrl = "https://www.countryflags.io/" + alpha2Code + "/shiny/64.png";
         Glide.with(FlashCardActivity.this).load(imageUrl).into(countryFlag);
 

@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements UserDelegate {
 
         username = findViewById(R.id.etUsername);
         password = findViewById(R.id.etPassword);
-        info = findViewById(R.id.etInfo);
         login = findViewById(R.id.buttonLogin);
         register = findViewById(R.id.buttonRegister);
         // final UserDatabase db = UserDatabase.getInstance(getApplicationContext());
@@ -58,21 +57,22 @@ public class MainActivity extends AppCompatActivity implements UserDelegate {
 
                 if (username.getText().toString().equals("")) {
                     // Missing Username Field
-                    info.setText("Please fill out the username field");
+                    Toast.makeText(getApplicationContext(), "Please fill out the username field", Toast.LENGTH_LONG).show();
                 } else if (password.getText().toString().equals("")) {
                     // Missing Password Field
-                    info.setText("Please fill out the password field");
+                    Toast.makeText(getApplicationContext(), "Please fill out the password field", Toast.LENGTH_LONG).show();
                 } else if (testUser == null) {
                     // Username not found
-                    info.setText("User doesn't exist");
+                    Toast.makeText(getApplicationContext(), "User does not exist!", Toast.LENGTH_LONG).show();
                 } else if (password.getText().toString().equals(testUser.getPassword().toString())) {
                     startActivity(new Intent(MainActivity.this, Dashboard.class));
                     // Login successful, creating user
                     SessionData.currentUser = testUser;
-                    info.setText("Your login details are correct");
+                    Toast.makeText(getApplicationContext(), "Your details are correct!", Toast.LENGTH_LONG).show();
                 } else {
                     // Incorrect credentials
-                    info.setText("Your login details are incorrect");
+                    Toast.makeText(getApplicationContext(), "Your details are incorrect!", Toast.LENGTH_LONG).show();
+
 
                 }
 
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements UserDelegate {
         });
 
         //cool background theme
-        LinearLayout constraintLayout = findViewById(R.id.layout);
+        ConstraintLayout constraintLayout = findViewById(R.id.layout);
         AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);

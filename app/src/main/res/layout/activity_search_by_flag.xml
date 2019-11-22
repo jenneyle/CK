@@ -4,21 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e8f4f8"
     android:orientation="vertical"
     tools:context=".SearchByFlagActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select a flashcard to learn more about a country..."
         android:gravity="center"
-        android:textStyle="bold"
-        android:padding="2dp"
-        android:textSize="16sp"/>
+        android:padding="8dp"
+        android:text="Select a flashcard to learn more about a country..."
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/country_flag_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:padding="8dp" />
 </LinearLayout>

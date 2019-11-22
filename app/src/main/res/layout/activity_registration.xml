@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Regolayout"
@@ -11,156 +11,169 @@
     tools:context=".Registration">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="299dp"
-            android:paddingLeft="8dp"
-            android:paddingTop="10dp"
-            android:paddingRight="8dp"
-            app:srcCompat="@drawable/countryking" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingBottom="8dp">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="299dp"
+                android:paddingLeft="8dp"
+                android:paddingTop="10dp"
+                android:paddingRight="8dp"
+                app:srcCompat="@drawable/countryking" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="8dp">
 
-                <ImageView
-                    android:id="@+id/usernameimage"
-                    android:layout_width="34dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    app:srcCompat="@drawable/user" />
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/rego_username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="47dp"
+                    <ImageView
+                        android:id="@+id/usernameimage"
+                        android:layout_width="34dp"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/user" />
 
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:ems="15"
-                    android:hint="Username"
-                    android:inputType="textPersonName"
-                    android:padding="8dp"
-                    android:paddingLeft="8dp"
-                    android:paddingTop="8dp"
-                    android:paddingRight="8dp"
-                    android:textColor="#17202A "
-                    android:textSize="14sp" />
+                    <EditText
+                        android:id="@+id/rego_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="47dp"
 
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:ems="15"
+                        android:hint="Username"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:padding="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="8dp"
+                        android:textColor="#17202A "
+                        android:textSize="14sp" />
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="8dp"
-            android:paddingTop="8dp"
-            android:paddingRight="8dp"
-            android:paddingBottom="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="8dp">
 
-                <ImageView
-                    android:id="@+id/inputpasswordphoto"
-                    android:layout_width="34dp"
-                    android:layout_height="47dp"
-                    app:srcCompat="@drawable/confirmpass" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/rego_pass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="47dp"
+                    <ImageView
+                        android:id="@+id/inputpasswordphoto"
+                        android:layout_width="34dp"
+                        android:layout_height="47dp"
+                        app:srcCompat="@drawable/confirmpass" />
 
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:ems="15"
-                    android:hint="Password"
-                    android:inputType="textPersonName"
-                    android:padding="8dp"
-                    android:paddingLeft="8dp"
-                    android:paddingTop="8dp"
-                    android:paddingRight="8dp"
-                    android:textColor="#17202A "
-                    android:textSize="14sp" />
+                    <EditText
+                        android:id="@+id/rego_pass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="47dp"
+
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:ems="15"
+                        android:hint="Password"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:padding="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="8dp"
+                        android:textColor="#17202A "
+                        android:textSize="14sp" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="8dp"
-            android:paddingTop="8dp"
-            android:paddingRight="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:paddingRight="8dp">
 
-                <ImageView
-                    android:id="@+id/confirmpassimage"
-                    android:layout_width="34dp"
-                    android:layout_height="47dp"
-                    app:srcCompat="@drawable/inputpass" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/rego_pass_confirm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="47dp"
+                    <ImageView
+                        android:id="@+id/confirmpassimage"
+                        android:layout_width="34dp"
+                        android:layout_height="47dp"
+                        app:srcCompat="@drawable/inputpass" />
 
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:ems="15"
-                    android:hint="Confirm Password"
-                    android:inputType="textPersonName"
-                    android:padding="8dp"
-                    android:paddingLeft="8dp"
-                    android:paddingTop="8dp"
-                    android:paddingRight="8dp"
-                    android:textColor="#17202A "
-                    android:textSize="14sp" />
+                    <EditText
+                        android:id="@+id/rego_pass_confirm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="47dp"
+
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:ems="15"
+                        android:hint="Confirm Password"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:padding="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="8dp"
+                        android:textColor="#17202A "
+                        android:textSize="14sp" />
+                </LinearLayout>
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <Button
+                android:id="@+id/rego_button"
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/round_corners"
+                android:text="Register" />
+
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
-
-        <Button
-            android:id="@+id/rego_button"
-            android:layout_width="102dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/round_corners"
-            android:text="Register" />
-
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
